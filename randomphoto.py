@@ -23,7 +23,10 @@ def randomphoto():
     imgname = ''.join(sample(chars, random.randint(9, 12))) + '.jpg'
     diravatar = 'origin/'
     dirmask = 'maskinst/'
-    dirsave = 'result/' + imgname
+    result_folder = 'result/'
+    if not os.path.exists(result_folder):
+        os.makedirs(result_folder)
+    dirsave = result_folder + imgname
     urlavatar = getavatar(diravatar)
     urlmask = getavatar(dirmask)
     im1 = Image.open(urlavatar)
